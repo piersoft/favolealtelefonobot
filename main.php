@@ -36,7 +36,7 @@ function start($telegram,$update)
 	$img = curl_file_create('logo.png','image/png');
 			$contentp = array('chat_id' => $chat_id, 'photo' => $img);
 			$telegram->sendPhoto($contentp);
-		$reply = "Benvenuto. Sono un servizio automatico (bot da Robot) per le ".NAME.". Puoi fare una ricerca per parola anteponendo il carattere ? oppure cliccare su Favole per avere l'elenco completo.\n";
+		$reply = "Benvenuto. Sono un servizio automatico (bot da Robot) per le ".NAME." che parafrasando diventano 'nel telefono'. Puoi fare una ricerca per parola anteponendo il carattere ? oppure cliccare su Favole per avere l'elenco completo.\n";
 		$reply .="Giovanni Rodari, detto Gian Franco, in arte Gianni (Omegna, 23 ottobre 1920 – Roma, 14 aprile 1980), è stato uno scrittore, pedagogista, giornalista e poeta italiano, specializzato in testi per bambini e ragazzi e tradotto in moltissime lingue.\nVincitor del prestigioso Premio Hans Christian Andersen (edizione 1970), fu uno tra i maggiori interpreti del tema 'fantastico' nonché, grazie alla Grammatica della fantasia, sua opera principale, uno fra i principali teorici dell'arte di inventare storie.\n\nIn qualsiasi momento scrivendo /start ti ripeterò questo messaggio di benvenuto.\nQuesto bot è stato realizzato da @piersoft, a scopo didattico senza lucro. Il progetto e il codice sorgente sono liberamente riutilizzabili con licenza MIT.";
 		$reply .="\n\nSei un'insegnante? una mamma? un'educatrice? Hai un video, un progetto di coding, un'illustrazione che vuoi inserire in calce ad una favola di questo Bot? Allora inviami il link e la descrizione. Per esempio digita /38 oppure /1";
 		$content = array('chat_id' => $chat_id, 'text' => $reply,'disable_web_page_preview'=>true);
@@ -298,7 +298,7 @@ if (strpos($text,'/') !== false) {
 		}
 		$chunks = str_split($homepage, self::MAX_LENGTH);
 		foreach($chunks as $chunk) {
-			$content = array('chat_id' => $chat_id, 'text' => $chunk,'disable_web_page_preview'=>false);
+			$content = array('chat_id' => $chat_id, 'text' => $chunk,'disable_web_page_preview'=>true);
 			$telegram->sendMessage($content);
 		}
 
